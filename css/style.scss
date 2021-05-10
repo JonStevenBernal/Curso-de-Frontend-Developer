@@ -1,0 +1,215 @@
+$blanco: white;
+.flex {
+    display: flex;
+    align-items: center;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #8F57FD;
+    /* background: linear-gradient(#21C088, #AB88FF); */
+    font-family: 'Muli', sans-serif;
+}
+.header {
+    background-color: #8F57FD;
+    /* background-image: linear-gradient(red, blue); */
+    @extend .flex;
+    width: 100%;
+    height: 80px;
+    // display: flex;
+    justify-content: space-between;
+    // align-items: center;
+}
+
+.header__img {
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.header__menu ul {
+    /* si queremos crear un efecto de que desaparece */
+    display: none;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    width: 100px;
+    text-align: right;
+    margin: 0px 0px 0px -14px;
+}
+.header__menu {
+    margin-right: 30px;
+}
+/* hacemos uso de la sudo claseses decir cuando hacemos hover sobre mi elemento heade__menu le indicamos que todas las ul y tambien apartte le dicimos que se mantengan cuando esta el hover  */
+.header__menu:hover ul, ul:hover{
+    display: block;
+}
+.header__menu li {
+    margin: 10px 0px;
+}
+.header__menu li a{
+    color: $blanco;
+    text-decoration: none;
+}
+.header__menu li a:hover{
+    /* esto nos ayuda que cuando ponemos nuestra manito ponga el interlineado */
+    text-decoration: underline;
+}
+.header__menu--profile {
+    margin-right: 8px;
+    /* width: 40px; */
+    @extend .flex;
+}
+.header__menu--profile img {
+    margin-right: 8px;
+    width: 40px;
+}
+.header__menu--profile p{
+    margin: 0px;
+    color: $blanco;
+    font-size: 20px;
+}
+.main {
+    height: 200px;
+    @extend .flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.main__title {
+    color: $blanco;
+    font-size: 25px;
+}
+.categories__title{
+    color: $blanco;
+    font-size: 16px;
+    position: absolute;
+    padding-left: 30px;
+    width: 100%;
+}
+.input {
+    border: 2px solid $blanco;
+    border-radius: 100px;
+    color: $blanco;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0px 20px;
+    width: 70%;
+    /* con esto le damos opacidad */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* con esta propiedad le quitamos el interlineado cuando hacemos click sobre el input */
+    outline: none;
+}
+/* seudoelemento */
+::placeholder{
+    color: $blanco;
+}
+
+/* -----------carousel---------- */
+
+.carousel {
+    /* width: 100%; */
+    overflow: scroll;
+    padding: 30px;
+    position: relative;
+}
+.carousel__container {
+    white-space: nowrap;
+    margin: 70px 0px;
+    padding-bottom: 10px;
+}
+.carousel-item {
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    background-color: blueviolet;
+    margin-right: 10px;
+    overflow: hidden;
+    display: inline-block;
+    /* indica que va a pasar algo cuando pongamos nuestro cursor encima */
+    cursor: pointer;
+    position: relative;
+}
+.carousel-item:hover ~ .carousel-item {
+    transform: translate3d(60px);
+}
+.carousel__container:hover .carousel-item {
+    opacity: 0.1;
+}
+.carousel__container:hover .carousel-item:hover {
+    /* este es para que incremente mi elemento */
+    transform: scale(1.5);
+    /* cambiar la opacidad cuando se le haga hover */
+    opacity: 1;
+}
+.carousel-item__img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+.carousel-item__details {
+    background: linear-gradient(to top,  rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    font-size: 10px;
+    opacity: 0;
+    transition: 450ms opacity;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: $blanco;
+    @extend .flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.carousel-item__details:hover {
+    opacity: 1;
+}
+.carousel-item__details--title {
+    font-size: 12px;
+    margin: 10px 0px 0px 0px;
+}
+.carousel-item__details--subtitle {
+    margin: 2px;
+}
+
+/* ------------- footer ----------- */
+.footer {
+    @extend .flex;
+    height: 100px;
+    background-color: #8F57FD;
+}
+.footer a {
+    color: $blanco;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.footer a:hover {
+    text-decoration: underline;
+}
+/* ----------- 404 ------------ */
+.error {
+    @extend .flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+.error__title {
+    color: $blanco;
+    font-size: 80px;
+    margin-top: 0;
+}
+.error__404 {
+    color: $blanco;
+    font-size: 70px;
+    font-family: 'Muli', sans-serif;
+}
+.error__page {
+    color: $blanco;
+    font-family: 'Muli', sans-serif;
+    font-size: 20px;
+}
